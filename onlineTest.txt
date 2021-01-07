@@ -1,0 +1,84 @@
+Question 1
+Define an array of numbers (use any random numbers). Write a program in PHP to find the sum of the array of numbers defined. Do not use any library functions, need to do via for loops only
+
+
+Ans:
+<?php
+$arry1= array("10","5","20");
+$arry= array("20","25","2");
+$sum= array();
+
+for($i=0; $i<= count($arry)-1; $i++){
+   $sum[$i] = $arry1[$i] + $arry[$i];
+}
+print_r($sum);
+?>
+
+Question 2
+Suppose you have an array of 101 integers. This array is already sorted and all numbers in this array are consecutive. Each number only occurs once in the array except one number which occurs twice. Write a php code to find the repeated number.
+e.g $arr = array(0,1,2,3,4,5,6,7,7,8,9,10...................);
+
+
+Ans:
+<?php
+$arr = array('0','1','2','3','3','4','5','5','5','6','7','7','8','9','9','10','11','11','11');
+$count=0;
+for($i=0; $i<= count($arr)-1; $i++){
+    for($j=0; $j <= count($arr)-1; $j++){
+        if(($arr[$i]==$arr[$j] && $i!=$j) && $j>$i){
+          $count++;
+          $i=$i+$count -1;
+        }
+    } if($count>0){echo $arr[$i]." is repeated ". $count."    " ; }$count= 0;
+}
+?>
+Question 3 
+Find the maximum consecutive 1's in an array of 0's and 1's.
+Example:
+a) 00110001001110 - Output :3 [Max num of consecutive 1's is 3]
+b) 1000010001 - Output :1 [Max num of consecutive 1's is 1]
+
+Ans:
+<?php
+$arr = array('0','0','1','1','0','0','0','1','0','0','1','1','1','1','0','0','1','1','1','1','1','1','1');
+$max;
+$count= 0;
+for($i=0; $i<= count($arr)-1; $i++){
+    for($j=0; $j <= count($arr)-1; $j++){
+        if(1 == $arr[$j] ){
+          $count++;
+          $max=$count;
+        }else{
+            $count =0;
+        }
+    }
+}
+if($max>0){
+    echo "Max num of consecutive 1's is ". $max;
+}
+?>
+
+Question 4
+You are given an array of values, (positive, negative values both, but only integers) and a value. You have to print all the pairs whose sum is the given value. Write a function to do this.
+
+Ans:
+<?php
+class test {
+   
+    public function testedsum(){
+        $test_Array = array("12","15","2","3","5");
+        $given_Sum_Value= 5;
+        for($i=0 ; $i <= count($test_Array)-1 ; $i++){
+            $first_Value = $test_Array[$i];
+            for($j=$i+1 ; $j<=count($test_Array)-1 ; $j++){
+                $Second_Value = $test_Array[$j];
+                if($first_Value+$Second_Value == $given_Sum_Value){
+                    echo $first_Value."  ".$Second_Value." given sum value is ".$given_Sum_Value;
+                }
+            }
+        }
+    }
+}
+$obj = new test ;
+$obj->testedsum();
+?>
